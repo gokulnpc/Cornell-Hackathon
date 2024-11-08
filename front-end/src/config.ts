@@ -17,6 +17,21 @@ export function profileContractAddress(chain: Chain | undefined): Address {
   }
 }
 
+export function jobContractAddress(chain: Chain | undefined): Address {
+  if (!chain) {
+    throw new Error("Chain is undefined. Please connect to a valid network.");
+  }
+
+  switch (chain) {
+    case skaleNebulaTestnet:
+      return "0xBd03FE76734Eb36500E50a8Cb1c0450689554C9c";
+    default:
+      throw new Error(
+        `Job contract address not configured for chain ${chain.name}`
+      );
+  }
+}
+
 if (!import.meta.env.VITE_WALLETCONNECT_PROJECT_ID) {
   throw new Error("VITE_WALLETCONNECT_PROJECT_ID is not set");
 }
