@@ -1,0 +1,275 @@
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.mintButton {
+  @apply w-full border-2 border-zinc-800 text-xl p-3 transition-colors;
+  @apply hover:enabled:bg-zinc-800 hover:enabled:text-zinc-300;
+  @apply dark:border-zinc-300 dark:hover:enabled:bg-zinc-300 dark:hover:enabled:text-zinc-800;
+  @apply active:enabled:border-yellow-400 active:enabled:bg-yellow-400 active:text-zinc-800;
+  @apply disabled:opacity-50;
+}
+*/
+/* src/index.css */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #121212;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #90caf9;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #64b5f6;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #90caf9;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #6200ea, #bb86fc);
+}
+
+.mintButton {
+  @apply w-full border-2 border-zinc-800 text-xl p-3 transition-colors;
+  @apply hover:enabled:bg-zinc-800 hover:enabled:text-zinc-300;
+  @apply dark:border-zinc-300 dark:hover:enabled:bg-zinc-300 dark:hover:enabled:text-zinc-800;
+  @apply active:enabled:border-yellow-400 active:enabled:bg-yellow-400 active:text-zinc-800;
+  @apply disabled:opacity-50;
+}
+
+/* index.css */
+
+/* ChatbotComponent.css */
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  max-width: 350px;
+  width: 90%;
+  z-index: 1000;
+  font-family: "Inter", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.chatbot-container.closed {
+  transform: translateY(100%);
+  transform: translateX(80%);
+}
+
+.chatbot-icon-button {
+  background: linear-gradient(135deg, #4c6ef5, #7048e8);
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: none;
+  cursor: pointer;
+}
+
+.chatbot-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.chatbot-content {
+  background-color: #1f2937;
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #7048e8, #4c6ef5);
+  color: #ffffff;
+  padding: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-close-button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.chatbot-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #1a1a2e;
+}
+
+.chatbot-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e1e1e1;
+}
+
+.chatbot-bot-message {
+  background-color: #333b50;
+  align-self: flex-start;
+}
+
+.chatbot-user-message {
+  background-color: #4c6ef5;
+  color: #ffffff;
+  align-self: flex-end;
+}
+
+.chatbot-input-container {
+  display: flex;
+  padding: 15px;
+  background-color: #1f2937;
+  border-top: 1px solid #333b50;
+}
+
+.chatbot-input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #333b50;
+  margin-right: 10px;
+}
+
+.chatbot-input::placeholder {
+  color: #999999;
+}
+
+.chatbot-send-button {
+  background-color: #4c6ef5;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chatbot-send-button:hover {
+  background-color: #5a78f7;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
