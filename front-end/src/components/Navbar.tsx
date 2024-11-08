@@ -16,7 +16,19 @@ export default function Navbar() {
         >
           Home
         </NavLink>
+
+        <NavLink
+          to="/myprofile"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white border-b-2 border-purple-500 pb-1"
+              : "hover:text-purple-400 transition duration-200"
+          }
+        >
+          My Profile
+        </NavLink>
       </div>
+
       <div className="flex items-center">
         <ConnectButton />
       </div>
