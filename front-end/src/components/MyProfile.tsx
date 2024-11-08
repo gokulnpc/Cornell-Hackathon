@@ -21,6 +21,8 @@ export default function MyProfile() {
     const fetchProfile = async () => {
       if (isConnected && walletClient) {
         try {
+          console.log("Fetching profile...");
+          console.log("Profile contract address:", profileContractAddress);
           const provider = new ethers.BrowserProvider(walletClient);
           const signer = await provider.getSigner();
           const profileContract = new ethers.Contract(
@@ -28,6 +30,7 @@ export default function MyProfile() {
             ProfileContractABI.abi,
             signer
           );
+          console.log("Profile contract:", profileContract);
 
           const profileData = await profileContract.getProfile();
           console.log("Profile data:", profileData);

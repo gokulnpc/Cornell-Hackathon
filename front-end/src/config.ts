@@ -1,11 +1,6 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { Address, Chain, http } from "viem";
-import {
-  sepolia,
-  localhost,
-  skaleNebulaTestnet,
-  polygonAmoy,
-} from "viem/chains";
+import { skaleNebulaTestnet } from "viem/chains";
 
 export function profileContractAddress(chain: Chain | undefined): Address {
   if (!chain) {
@@ -13,10 +8,8 @@ export function profileContractAddress(chain: Chain | undefined): Address {
   }
 
   switch (chain) {
-    case sepolia:
-    case localhost:
     case skaleNebulaTestnet:
-      return "0x2Be1cF0a6a2ca7077F93d43Da530D725A532893c";
+      return "0xF3ead142EB1dec8A5A33D1D9aaB3436F2186D3D7";
     default:
       throw new Error(
         `Profile contract address not configured for chain ${chain.name}`
