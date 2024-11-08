@@ -1,7 +1,8 @@
 import { useAccount, useWalletClient } from "wagmi";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
-import { useProfileContract } from "../hooks/useProfileContract";
+import { useProfileContractAddress } from "../hooks/tokenAddress";
+import ProfileContractABI from "../abi/ProfileContract.json";
 
 interface ProfileData {
   name: string;
@@ -12,23 +13,28 @@ interface ProfileData {
 export default function MyProfile() {
   const { isConnected } = useAccount();
   const { data: walletClient } = useWalletClient();
-  const profileContract = useProfileContract();
-
+  const profileContractAddress = useProfileContractAddress();
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [status, setStatus] = useState<string>("");
 
   useEffect(() => {
     const fetchProfile = async () => {
-      if (isConnected && walletClient && profileContract) {
+      if (isConnected && walletClient) {
         try {
-          const signer = walletClient.getSigner();
-          const profileData = await profileContract
-            .connect(signer)
-            .getProfile();
+          const provider = new ethers.BrowserProvider(walletClient);
+          const signer = await provider.getSigner();
+          const profileContract = new ethers.Contract(
+            profileContractAddress,
+            ProfileContractABI.abi,
+            signer
+          );
+
+          const profileData = await profileContract.getProfile();
+          console.log("Profile data:", profileData);
           setProfile({
-            name: profileData.name,
-            email: profileData.email,
-            bio: profileData.bio,
+            name: profileData[0],
+            email: profileData[1],
+            bio: profileData[2],
           });
         } catch (error) {
           console.error("Failed to fetch profile:", error);
@@ -37,7 +43,7 @@ export default function MyProfile() {
       }
     };
     fetchProfile();
-  }, [isConnected, walletClient, profileContract]);
+  }, [isConnected, walletClient, profileContractAddress]);
 
   if (!isConnected) {
     return (

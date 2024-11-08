@@ -7,7 +7,7 @@ import {
   polygonAmoy,
 } from "viem/chains";
 
-export function pyusdTokenAddress(chain: Chain | undefined): Address {
+export function profileContractAddress(chain: Chain | undefined): Address {
   if (!chain) {
     throw new Error("Chain is undefined. Please connect to a valid network.");
   }
@@ -16,121 +16,11 @@ export function pyusdTokenAddress(chain: Chain | undefined): Address {
     case sepolia:
     case localhost:
     case skaleNebulaTestnet:
-      return "0x546ee037AB8647c985B8F217EE7dfce9bf334978";
+      return "0x2Be1cF0a6a2ca7077F93d43Da530D725A532893c";
     default:
       throw new Error(
-        `Payment token address not configured for chain ${chain.name}`
+        `Profile contract address not configured for chain ${chain.name}`
       );
-  }
-}
-
-export function pynftCollectionAddress(chain: Chain | undefined): Address {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case skaleNebulaTestnet:
-      return "0x43A80ce3FDCd80F71032174e8AD6bB73392C8717";
-    default:
-      throw new Error(
-        `NFT collection address not configured for chain ${chain.name}`
-      );
-  }
-}
-
-export function nftCollectionAddress(chain: Chain | undefined): Address {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case polygonAmoy:
-      return "0xACEBf59C1bF0FdA1e5B936034aE6b57fB82ab770";
-    case skaleNebulaTestnet:
-      return "0x7C476D3335E187606c4323e2c55C188Bf9B37D25";
-    default:
-      throw new Error(
-        `NFT collection address not configured for chain ${chain.name}`
-      );
-  }
-}
-
-export function betterCauseAddress(chain: Chain | undefined): Address {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case polygonAmoy:
-      return "0x823e797e0942801361bE2710e5D230Ed93AFB450";
-    case skaleNebulaTestnet:
-      return "0x4EAC547Dfc9A79c73A4B28731DF7023f0FA764DD";
-    default:
-      throw new Error(
-        `NFT collection address not configured for chain ${chain.name}`
-      );
-  }
-}
-
-export function MarketPlaceAddress(chain: Chain | undefined): Address {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case polygonAmoy:
-      return "0x823e797e0942801361bE2710e5D230Ed93AFB450";
-    case skaleNebulaTestnet:
-      return "0x8F0F658182D86cc3C7DcBe318F05B47EfaA0Eb9C";
-    default:
-      throw new Error(
-        `NFT collection address not configured for chain ${chain.name}`
-      );
-  }
-}
-
-export function stakeAddress(chain: Chain | undefined): Address {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case polygonAmoy:
-      return "0xbd88E8CDAE3b6EcfD9513182288c5A95271d2386";
-    case skaleNebulaTestnet:
-      return "0x62DC0326cf4DE0b6e8c8cEd6B0e083901da6dD80";
-    default:
-      throw new Error(`Stake address not configured for chain ${chain.name}`);
-  }
-}
-
-export function getBaseURL(chain: Chain | undefined): Promise<string> {
-  if (!chain) {
-    throw new Error("Chain is undefined. Please connect to a valid network.");
-  }
-
-  switch (chain) {
-    case sepolia:
-    case localhost:
-    case polygonAmoy:
-      return Promise.resolve("https://api.bettercause.io");
-    case skaleNebulaTestnet:
-      return Promise.resolve(
-        "https://internal.explorer.testnet.skalenodes.com:10001/api/v2/transactions/"
-      );
-    default:
-      throw new Error(`Stake address not configured for chain ${chain.name}`);
   }
 }
 

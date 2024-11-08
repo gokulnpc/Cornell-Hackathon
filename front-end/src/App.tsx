@@ -6,6 +6,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import MyProfile from "./components/MyProfile";
 import { wagmiConfig } from "./config";
 import ChatbotComponent from "./components/Chatbot";
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ export default function App() {
             <div className="pt-5">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/myprofile" element={<MyProfile />} />
               </Routes>
             </div>
 
