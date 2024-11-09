@@ -1,4 +1,5 @@
 import { useAccount, useWalletClient } from "wagmi";
+import ResumeMatcher from "../components/ResumeMatcher";
 
 export default function Home() {
   const { isConnected } = useAccount();
@@ -18,6 +19,7 @@ export default function Home() {
             employers. Connect your wallet to get started and explore a world of
             opportunities.
           </p>
+          <ResumeMatcher />
         </div>
       </div>
     </div>
