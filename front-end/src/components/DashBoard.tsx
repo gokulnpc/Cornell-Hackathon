@@ -24,7 +24,7 @@ export default function Dashboard() {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white p-10 mt-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Profile Section */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
           <div>
@@ -84,6 +84,9 @@ export default function Dashboard() {
             You have applied to 5 jobs. 3 are in review, and 1 is awaiting your
             response.
           </p>
+          <button className="mt-4 px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded">
+            View Applications
+          </button>
         </div>
 
         {/* AI Cover Letter Builder */}
@@ -121,6 +124,46 @@ export default function Dashboard() {
           </p>
           <button className="px-6 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded">
             Schedule a Meeting
+          </button>
+        </div>
+
+        {/* Personalized Job Recommendations */}
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
+          <h2 className="text-3xl font-bold mb-4">
+            Personalized Job Recommendations
+          </h2>
+          <p className="text-gray-400 mb-4">
+            Explore jobs that match your skills and preferences, curated just
+            for you.
+          </p>
+          <button className="px-6 py-2 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded">
+            View Recommended Jobs
+          </button>
+        </div>
+
+        {/* Recent Activity & Progress Tracker */}
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
+          <h2 className="text-3xl font-bold mb-4">
+            Recent Activity & Progress Tracker
+          </h2>
+          <p className="text-gray-400 mb-4">
+            Keep track of your recent activities, such as applications submitted
+            and interviews scheduled.
+          </p>
+          <button className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded">
+            View Activity Log
+          </button>
+        </div>
+
+        {/* Networking Opportunities */}
+        <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col">
+          <h2 className="text-3xl font-bold mb-4">Networking Opportunities</h2>
+          <p className="text-gray-400 mb-4">
+            Connect with industry professionals and attend events to grow your
+            network.
+          </p>
+          <button className="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded">
+            Find Networking Events
           </button>
         </div>
       </div>

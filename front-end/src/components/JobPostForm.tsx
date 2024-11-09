@@ -13,6 +13,8 @@ export default function JobPostForm() {
   const [description, setDescription] = useState<string>("");
   const [salary, setSalary] = useState<string>("");
   const [location, setLocation] = useState<string>("");
+  const [techStack, setTechStack] = useState<string>("");
+  const [h1bSponsorship, setH1bSponsorship] = useState<boolean>(false);
   const [status, setStatus] = useState<string>("");
 
   const handleJobPost = async () => {
@@ -30,7 +32,9 @@ export default function JobPostForm() {
           title,
           description,
           salary,
-          location
+          location,
+          techStack,
+          h1bSponsorship
         );
         await tx.wait();
 
@@ -46,7 +50,7 @@ export default function JobPostForm() {
 
   return (
     <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white p-10 mt-10">
-      <div className="max-w-xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-6">Post a Job</h1>
         {status && <p className="text-red-500 mb-4">{status}</p>}
         <div className="mb-4">
@@ -84,9 +88,33 @@ export default function JobPostForm() {
             className="w-full p-3 text-black rounded-lg"
           />
         </div>
+        <div className="mb-4">
+          <label className="block text-lg mb-2">Tech Stack Requirements</label>
+          <input
+            type="text"
+            value={techStack}
+            onChange={(e) => setTechStack(e.target.value)}
+            className="w-full p-3 text-black rounded-lg"
+            placeholder="e.g., React, Node.js, AWS"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-lg mb-2">
+            H1B Sponsorship Available?
+          </label>
+          <div className="flex items-center">
+            <input
+              type="checkbox"
+              checked={h1bSponsorship}
+              onChange={(e) => setH1bSponsorship(e.target.checked)}
+              className="mr-2"
+            />
+            <span>Yes</span>
+          </div>
+        </div>
         <button
           onClick={handleJobPost}
-          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg"
+          className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
         >
           Post Job
         </button>
