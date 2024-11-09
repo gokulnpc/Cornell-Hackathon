@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { useProfileContractAddress } from "../hooks/tokenAddress";
 import ProfileContractABI from "../abi/ProfileContract.json";
+import { useNavigate } from "react-router-dom";
 
 interface ProfileData {
   name: string;
@@ -14,6 +15,7 @@ export default function MyProfile() {
   const { isConnected } = useAccount();
   const { data: walletClient } = useWalletClient();
   const profileContractAddress = useProfileContractAddress();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [status, setStatus] = useState<string>("");
 
@@ -48,6 +50,10 @@ export default function MyProfile() {
     fetchProfile();
   }, [isConnected, walletClient, profileContractAddress]);
 
+  const handleEditProfile = () => {
+    navigate("/edit-profile");
+  };
+
   if (!isConnected) {
     return (
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white p-10 mt-10">
@@ -71,6 +77,12 @@ export default function MyProfile() {
             <h2 className="text-2xl font-bold mb-2">{profile.name}</h2>
             <p className="text-gray-400 mb-2">Email: {profile.email}</p>
             <p className="text-gray-300 mb-4">Bio: {profile.bio}</p>
+            <button
+              onClick={handleEditProfile}
+              className="mt-4 px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded"
+            >
+              Edit Profile
+            </button>
           </div>
         ) : (
           <p className="text-gray-400">Loading profile...</p>

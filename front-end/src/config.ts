@@ -40,7 +40,7 @@ export function ApplicationContractAddress(chain: Chain | undefined): Address {
 
   switch (chain) {
     case skaleNebulaTestnet:
-      return "0xA0B7a4e65d8DB9dA27d5BE07Fb20B8CA69F67489";
+      return "0xA97B592ad54C4a3351872A4d16c2bc6e8D1A9618";
     default:
       throw new Error(
         `Application contract address not configured for chain ${chain.name}`

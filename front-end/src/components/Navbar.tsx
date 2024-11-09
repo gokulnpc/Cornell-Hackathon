@@ -49,6 +49,28 @@ export default function Navbar() {
         >
           Job List
         </NavLink>
+
+        <NavLink
+          to="/applied-jobs"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white border-b-2 border-purple-500 pb-1"
+              : "hover:text-purple-400 transition duration-200"
+          }
+        >
+          Applied jobs
+        </NavLink>
+
+        <NavLink
+          to="/dash-board"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white border-b-2 border-purple-500 pb-1"
+              : "hover:text-purple-400 transition duration-200"
+          }
+        >
+          Dashboard
+        </NavLink>
       </div>
 
       <div className="flex items-center">

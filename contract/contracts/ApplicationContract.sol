@@ -66,4 +66,16 @@ contract ApplicationContract is Ownable {
     function getJobsByApplicant(address _applicant) public view returns (uint256[] memory) {
         return applicantJobs[_applicant];
     }
+
+    // Function to get a specific application by jobId and applicant
+    function getApplication(uint256 _jobId, address _applicant) public view returns (Application memory) {
+        Application[] memory applications = jobApplications[_jobId];
+        for (uint256 i = 0; i < applications.length; i++) {
+            if (applications[i].applicant == _applicant) {
+                return applications[i];
+            }
+        }
+        revert("Application does not exist");
+    }
+
 }

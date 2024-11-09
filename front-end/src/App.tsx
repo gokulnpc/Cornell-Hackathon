@@ -11,6 +11,9 @@ import JobPostForm from "./components/JobPostForm";
 import JobList from "./components/JobList";
 import JobDetails from "./components/JobDetails";
 import JobApplication from "./components/JobApplication";
+import AppliedJobs from "./components/AppliedJobs";
+import EditProfile from "./components/EditProfile";
+import Dashboard from "./components/DashBoard";
 import { wagmiConfig } from "./config";
 import ChatbotComponent from "./components/Chatbot";
 const queryClient = new QueryClient();
@@ -33,6 +36,9 @@ export default function App() {
                   path="/job-application/:jobId"
                   element={<JobApplication />}
                 />
+                <Route path="/applied-jobs" element={<AppliedJobs />} />
+                <Route path="/edit-profile" element={<EditProfile />} />
+                <Route path="/dash-board" element={<Dashboard />} />
               </Routes>
             </div>
 
