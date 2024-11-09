@@ -38,6 +38,17 @@ export default function Navbar() {
         >
           Post a Job
         </NavLink>
+
+        <NavLink
+          to="/joblist"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white border-b-2 border-purple-500 pb-1"
+              : "hover:text-purple-400 transition duration-200"
+          }
+        >
+          Job List
+        </NavLink>
       </div>
 
       <div className="flex items-center">
