@@ -3,6 +3,7 @@ import { useAccount, useWalletClient } from "wagmi";
 import { ethers } from "ethers";
 import { useJobContractAddress } from "../hooks/tokenAddress";
 import JobContractABI from "../abi/JobContract.json";
+import { useNavigate } from "react-router-dom";
 
 interface Job {
   jobId: number;
@@ -20,6 +21,7 @@ export default function JobList() {
   const jobContractAddress = useJobContractAddress();
   const [jobs, setJobs] = useState<Job[]>([]);
   const [status, setStatus] = useState<string>("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -62,6 +64,10 @@ export default function JobList() {
     fetchJobs();
   }, [isConnected, walletClient, jobContractAddress]);
 
+  const handleJobClick = (jobId: number) => {
+    navigate(`/job-details/${jobId}`);
+  };
+
   if (!isConnected) {
     return (
       <div className="bg-gradient-to-b from-gray-900 to-gray-800 text-white p-10 mt-10">
@@ -84,7 +90,8 @@ export default function JobList() {
           jobs.map((job) => (
             <div
               key={job.jobId}
-              className="bg-gray-800 p-6 mb-6 rounded-lg shadow-lg"
+              className="bg-gray-800 p-6 mb-6 rounded-lg shadow-lg cursor-pointer hover:bg-gray-700 transition duration-200"
+              onClick={() => handleJobClick(job.jobId)}
             >
               <h2 className="text-2xl font-bold mb-2">{job.title}</h2>
               <p className="text-gray-300 mb-2">{job.description}</p>

@@ -1,6 +1,7 @@
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { Address, Chain, http } from "viem";
 import { skaleNebulaTestnet } from "viem/chains";
+import App from "./App";
 
 export function profileContractAddress(chain: Chain | undefined): Address {
   if (!chain) {
@@ -28,6 +29,21 @@ export function jobContractAddress(chain: Chain | undefined): Address {
     default:
       throw new Error(
         `Job contract address not configured for chain ${chain.name}`
+      );
+  }
+}
+
+export function ApplicationContractAddress(chain: Chain | undefined): Address {
+  if (!chain) {
+    throw new Error("Chain is undefined. Please connect to a valid network.");
+  }
+
+  switch (chain) {
+    case skaleNebulaTestnet:
+      return "0xA0B7a4e65d8DB9dA27d5BE07Fb20B8CA69F67489";
+    default:
+      throw new Error(
+        `Application contract address not configured for chain ${chain.name}`
       );
   }
 }

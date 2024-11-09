@@ -339,6 +339,45 @@
       "artifacts": [
         "JobContract"
       ]
+    },
+    "/Users/gokuleshwarannarayanan/Documents/Repositories/Personal Repositories/Cornell Hackathon/contract/contracts/ApplicationContract.sol": {
+      "lastModificationDate": 1731123138787,
+      "contentHash": "56d407c440b3271a6526815776c0aa43",
+      "sourceName": "contracts/ApplicationContract.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "./JobContract.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ApplicationContract"
+      ]
     }
   }
 }
