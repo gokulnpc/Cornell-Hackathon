@@ -1,8 +1,8 @@
 # 🐝 HoneyBeeAI - Revolutionizing Recruitment with AI and Blockchain
 <div style="display: flex; justify-content: space-around;">
-  <img src="/images/honeybee6.jpg" alt="honeybee" width="270" height="270">
-  <img src="/images/honeybee.jpg" alt="demo" width="300" height="270">
-  <img src="/images/honeybees.jpg" alt="demo2" width="400" height="270">
+  <img src="/images/honeybee6.jpg" alt="honeybee" width="200" height="200">
+  <img src="/images/honeybee.jpg" alt="demo" width="222.22" height="200">
+  <img src="/images/honeybees.jpg" alt="demo2" width="296.3" height="200">
 </div>
 
 ## Overview
