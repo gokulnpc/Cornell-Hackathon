@@ -43,7 +43,11 @@ HoneyBeeAI empowers companies to create fairer, more engaging, and efficient rec
 
 ## Demo
 
-Check out the HoneyBeeAI demo to see how the platform redefines the hiring experience: ![Demo](path/to/demo.png)
+Check out the HoneyBeeAI demo to see how the platform redefines the hiring experience:
+<div style="display: flex; justify-content: space-around;">
+  <img src="/images/demo.png" alt="honeybee" width="472.5" height="270">
+  <img src="/images/demo2.png" alt="demo" width="472.5" height="270">
+</div>
 
 ---
 
